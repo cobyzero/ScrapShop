@@ -13,7 +13,7 @@
 ### Views/routes.dart : Contiene las rutas de todo el proyecto.
 # Imagenes
 
-<img src="https://imgur.com/HXzSGku.jpg" width="100">
-<img src="https://imgur.com/dgFOVRp.jpg" width="100">
-<img src="https://imgur.com/hCl5iWA.jpg" width="100">
-<img src="https://imgur.com/hLClPY9.jpg" width="100">
+<img src="https://imgur.com/HXzSGku.jpg" width="400">
+<img src="https://imgur.com/dgFOVRp.jpg" width="400">
+<img src="https://imgur.com/hCl5iWA.jpg" width="400">
+<img src="https://imgur.com/hLClPY9.jpg" width="400">

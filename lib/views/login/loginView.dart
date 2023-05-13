@@ -46,7 +46,7 @@ class LoginView extends StatelessWidget {
                 text: "Get Started",
                 icon: Icons.arrow_forward,
                 fun: () {
-                  Navigator.pushNamed(context, "register");
+                  Navigator.pushNamed(context, "main");
                 },
               ),
               Container(
@@ -59,7 +59,11 @@ class LoginView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Not a member?"),
-                  TextButton(onPressed: () {}, child: const Text("Register now"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "register");
+                      },
+                      child: const Text("Register now"))
                 ],
               )
             ],

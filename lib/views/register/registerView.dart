@@ -62,7 +62,11 @@ class RegisterView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Already a member?"),
-                  TextButton(onPressed: () {}, child: const Text("Log in"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "login");
+                      },
+                      child: const Text("Log in"))
                 ],
               )
             ],

@@ -1,6 +1,6 @@
 # ScrapShop
- Tienda virtual hecha en flutter.
-
+ ### Tienda virtual hecha en flutter.
+ ### Diseño : eCommerce App UI (Free) By Hamza Naeem
 # Informacion
 ### Se utiliza Supabase como administrador de informacion y el patron de diseño MVVM.
 ## Paquetes

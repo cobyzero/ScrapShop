@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:scrap_shop/views/cart/cartView.dart';
 import 'package:scrap_shop/views/home/homeView.dart';
 
 class MainView extends StatelessWidget {
-  PageController pageController = PageController(initialPage: 0);
+  final PageController pageController = PageController(initialPage: 0);
 
   MainView({
     super.key,
@@ -15,7 +16,11 @@ class MainView extends StatelessWidget {
         children: [
           Expanded(
             child: PageView(
-              children: const [HomeView()],
+              controller: pageController,
+              children: const [
+                HomeView(),
+                CartView(),
+              ],
             ),
           ),
           Container(
@@ -39,24 +44,16 @@ class MainView extends StatelessWidget {
     );
   }
 
-  InkWell itemPage(String title, IconData icon, bool active, int id) {
-    return InkWell(
-      onTap: () {
+  IconButton itemPage(String title, IconData icon, bool active, int id) {
+    return IconButton(
+      onPressed: () {
         pageController.jumpToPage(id);
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: active ? Colors.black : Colors.grey,
-          ),
-          Text(
-            title,
-            style: TextStyle(color: active ? Colors.black : Colors.grey),
-          )
-        ],
+      icon: Icon(
+        icon,
+        size: 35,
       ),
+      color: active ? Colors.black : Colors.grey,
     );
   }
 }

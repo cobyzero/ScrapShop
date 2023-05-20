@@ -10,3 +10,15 @@ space({double h = 0, double w = 0}) {
     height: h,
   );
 }
+
+messageDialog(BuildContext context, String text) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text("Information"),
+        content: Text(text),
+      );
+    },
+  );
+}

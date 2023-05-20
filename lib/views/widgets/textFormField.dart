@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyTextFormField extends StatelessWidget {
-  MyTextFormField({super.key, required this.title, required this.text, this.oscure = false});
+  MyTextFormField(
+      {super.key, required this.title, required this.text, this.oscure = false, this.controller});
   String title;
   String text;
   bool oscure;
-
+  TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,6 +17,7 @@ class MyTextFormField extends StatelessWidget {
           style: const TextStyle(fontSize: 19),
         ),
         TextFormField(
+          controller: controller,
           cursorHeight: 30,
           obscureText: oscure,
           decoration: InputDecoration(

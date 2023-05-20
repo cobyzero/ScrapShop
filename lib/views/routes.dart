@@ -8,7 +8,7 @@ import 'package:scrap_shop/views/splash/splashView.dart';
 Map<String, WidgetBuilder> routesApp() {
   return {
     "splash": (context) => const SplashView(),
-    "login": (context) => const LoginView(),
+    "login": (context) => LoginView(),
     "register": (context) => const RegisterView(),
     "main": (context) => MainView(),
     "details": (context) => const DetailsView()

@@ -1,44 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:scrap_shop/util/common.dart';
+import 'package:scrap_shop/viewModels/productsViewModel.dart';
 
 class DetailsInformation extends StatelessWidget {
-  const DetailsInformation({super.key});
-
+  DetailsInformation({super.key, required this.id});
+  int id;
+  var listProductsViewModel = ListProductsViewModel();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 20, left: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Regular fit slogan",
-            style: TextStyle(fontSize: 24),
-          ),
-          const Row(
-            children: [
-              Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 30,
-              ),
-              Text(
-                "4.5/5",
-                style: TextStyle(fontSize: 18),
-              ),
-              Text(
-                "(45 reviews)",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
-              ),
-            ],
-          ),
-          space(h: 10),
-          Text(
-            "THE NAME SAYS IT ALL, THE RIGHT SIZE SLIGHTLY SNUGS THE BODY LEAVING ENOUGH ROOM FOR COMFORT IN THE SLEEVES AND WAIST."
-                .toLowerCase(),
-            style: const TextStyle(color: Colors.grey, fontSize: 18),
-          ),
-        ],
+      child: FutureBuilder(
+        future: listProductsViewModel.getProductsForId(id),
+        builder: (context, snapshot) {
+          if (listProductsViewModel.list != null) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  listProductsViewModel.list![0].productsModel.title!,
+                  style: const TextStyle(fontSize: 24),
+                ),
+                space(h: 10),
+                Text(
+                  listProductsViewModel.list![0].productsModel.description!.toLowerCase(),
+                  style: const TextStyle(color: Colors.grey, fontSize: 18),
+                ),
+              ],
+            );
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }

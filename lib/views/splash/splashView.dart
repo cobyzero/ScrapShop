@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scrap_shop/util/const.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -11,8 +13,18 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2))
-        .whenComplete(() => Navigator.popAndPushNamed(context, "login"));
+
+    supabaseInit();
+  }
+
+  void supabaseInit() async {
+    await Supabase.initialize(url: SUPABASE_URL, anonKey: SUPABASE_ANON_KEY).whenComplete(() {
+      if (Supabase.instance.client.auth.currentSession == null) {
+        Navigator.pushNamed(context, "login");
+        return;
+      }
+      Navigator.pushNamed(context, "main");
+    });
   }
 
   @override

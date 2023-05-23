@@ -9,7 +9,7 @@ Map<String, WidgetBuilder> routesApp() {
   return {
     "splash": (context) => const SplashView(),
     "login": (context) => LoginView(),
-    "register": (context) => const RegisterView(),
+    "register": (context) => RegisterView(),
     "main": (context) => MainView(),
     "details": (context) => const DetailsView()
   };

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:scrap_shop/util/common.dart';
 import 'package:scrap_shop/views/cart/cartView.dart';
 import 'package:scrap_shop/views/home/homeView.dart';
 
 class MainView extends StatelessWidget {
-  final PageController pageController = PageController(initialPage: 0);
+  final pageController = PageController(initialPage: 0);
 
   MainView({
     super.key,
@@ -17,9 +18,9 @@ class MainView extends StatelessWidget {
           Expanded(
             child: PageView(
               controller: pageController,
-              children: const [
+              children: [
                 HomeView(),
-                CartView(),
+                const CartView(),
               ],
             ),
           ),

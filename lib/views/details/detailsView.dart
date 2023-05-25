@@ -33,12 +33,16 @@ class DetailsView extends StatelessWidget {
                       id: id,
                     ),
                     space(h: 10),
-                    const DetailsSize(),
+                    DetailsSize(
+                      id: id,
+                    ),
                   ],
                 ),
               ),
             ),
-            const DetailsPrice()
+            DetailsPrice(
+              id: id,
+            )
           ],
         ),
       ),

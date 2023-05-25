@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:scrap_shop/providers/homeProvider.dart';
 import 'package:scrap_shop/viewModels/productsViewModel.dart';
 
-class HomeGridProducts extends StatefulWidget {
-  const HomeGridProducts({super.key});
+class HomeGridProducts extends StatelessWidget {
+  HomeGridProducts({super.key});
 
-  @override
-  State<HomeGridProducts> createState() => _HomeGridProductsState();
-}
-
-class _HomeGridProductsState extends State<HomeGridProducts> {
   var listProductsViewModel = ListProductsViewModel();
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<HomeProvider>(context);
     return Expanded(
         child: FutureBuilder(
-      future: listProductsViewModel.getProducts(),
+      future: listProductsViewModel.getProducts(provider.homeListCategoryCount),
       builder: (context, snapshot) {
         if (listProductsViewModel.list != null) {
           return GridView.builder(
@@ -23,18 +21,18 @@ class _HomeGridProductsState extends State<HomeGridProducts> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisExtent: 230, mainAxisSpacing: 20),
             itemBuilder: (context, index) {
-              return itemGridProducts(listProductsViewModel.list![index]);
+              return itemGridProducts(listProductsViewModel.list![index], context);
             },
           );
         } else {
           return GridView.builder(
-            itemCount: listProductsViewModel.list!.length,
+            itemCount: 4,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisExtent: 230, mainAxisSpacing: 20),
             itemBuilder: (context, index) {
               return Container(
-                decoration:
-                    BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(10)),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300, borderRadius: BorderRadius.circular(10)),
               );
             },
           );
@@ -43,7 +41,7 @@ class _HomeGridProductsState extends State<HomeGridProducts> {
     ));
   }
 
-  itemGridProducts(ProductsViewModel productsViewModel) {
+  itemGridProducts(ProductsViewModel productsViewModel, BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, "details", arguments: productsViewModel.productsModel.id);
@@ -65,7 +63,7 @@ class _HomeGridProductsState extends State<HomeGridProducts> {
               style: const TextStyle(fontSize: 17),
             ),
             Text(
-              "S/.${productsViewModel.productsModel.price}",
+              "\$${productsViewModel.productsModel.price}",
               style: const TextStyle(color: Colors.grey),
             )
           ],

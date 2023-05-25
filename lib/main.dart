@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scrap_shop/providers/detailsProvider.dart';
 import 'package:scrap_shop/providers/homeProvider.dart';
 import 'package:scrap_shop/views/routes.dart';
 
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DetailsProvider(),
         )
       ],
       child: MaterialApp(

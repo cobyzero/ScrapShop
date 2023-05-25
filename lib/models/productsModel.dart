@@ -8,6 +8,7 @@ class ProductsModel {
   int? sizeId;
   double? price;
   bool? active;
+  dynamic productSizes;
 
   ProductsModel(
       {this.id,
@@ -18,7 +19,8 @@ class ProductsModel {
       this.description,
       this.sizeId,
       this.price,
-      this.active});
+      this.active,
+      this.productSizes});
 
   ProductsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -30,6 +32,7 @@ class ProductsModel {
     sizeId = json['sizeId'];
     price = json['price'];
     active = json['active'];
+    productSizes = json['productSizes'];
   }
 
   Map<String, dynamic> toJson() {
@@ -43,6 +46,7 @@ class ProductsModel {
     data['sizeId'] = this.sizeId;
     data['price'] = this.price;
     data['active'] = this.active;
+    data['productSizes'] = this.productSizes;
     return data;
   }
 }

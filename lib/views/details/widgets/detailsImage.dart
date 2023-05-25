@@ -14,12 +14,16 @@ class DetailsImage extends StatelessWidget {
           return Image.network(
             listProductsViewModel.list![0].productsModel.image!,
             width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.6,
           );
         } else {
-          return Container(
+          return SizedBox(
             width: double.infinity,
-            height: 200,
-            color: Colors.grey.shade300,
+            height: MediaQuery.of(context).size.height * 0.6,
+            child: LinearProgressIndicator(
+              backgroundColor: Colors.white,
+              color: Colors.grey.shade300,
+            ),
           );
         }
       },

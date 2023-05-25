@@ -5,8 +5,8 @@ class ListProductsViewModel {
   List<ProductsViewModel>? list;
   var supabaseClient = Supabase.instance.client;
 
-  Future<void> getProducts() async {
-    final json = await supabaseClient.from("products").select().order("id", ascending: true);
+  Future<void> getProducts(int id) async {
+    final json = await supabaseClient.from("products").select().eq("categoryId", id);
     list = (json as List).map((e) => ProductsViewModel(ProductsModel.fromJson(e))).toList();
   }
 

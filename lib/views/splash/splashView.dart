@@ -20,10 +20,10 @@ class _SplashViewState extends State<SplashView> {
   void supabaseInit() async {
     await Supabase.initialize(url: SUPABASE_URL, anonKey: SUPABASE_ANON_KEY).whenComplete(() {
       if (Supabase.instance.client.auth.currentSession == null) {
-        Navigator.pushNamed(context, "login");
+        Navigator.popAndPushNamed(context, "login");
         return;
       }
-      Navigator.pushNamed(context, "main");
+      Navigator.popAndPushNamed(context, "main");
     });
   }
 

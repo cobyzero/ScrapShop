@@ -29,8 +29,8 @@ class ListUserViewModel {
       BuildContext context, String email, String name, String password) async {
     try {
       loading(context);
-      final AuthResponse res1 =
-          await supabaseClient.auth.signUp(email: email, data: {"name": name}, password: password);
+
+      await supabaseClient.auth.signUp(email: email, data: {"name": name}, password: password);
 
       await supabaseClient.from("user").insert({
         "name": name,

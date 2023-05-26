@@ -1,8 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:scrap_shop/viewModels/userViewModel.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+// ignore: must_be_immutable
 class HomeAppBar extends StatelessWidget {
   HomeAppBar({super.key});
 

@@ -3,8 +3,8 @@ import 'package:scrap_shop/util/common.dart';
 import 'package:scrap_shop/viewModels/userViewModel.dart';
 import 'package:scrap_shop/views/widgets/elevatedButton.dart';
 import 'package:scrap_shop/views/widgets/textFormField.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
+// ignore: must_be_immutable
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
 

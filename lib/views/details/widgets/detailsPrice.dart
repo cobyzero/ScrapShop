@@ -3,8 +3,8 @@ import 'package:provider/provider.dart' as pr;
 import 'package:scrap_shop/providers/detailsProvider.dart';
 import 'package:scrap_shop/viewModels/cartViewModel.dart';
 import 'package:scrap_shop/viewModels/productsViewModel.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
+// ignore: must_be_immutable
 class DetailsPrice extends StatelessWidget {
   DetailsPrice({super.key, required this.id});
   int id;

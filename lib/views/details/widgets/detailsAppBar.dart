@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:scrap_shop/viewModels/favoritesViewModel.dart';
 
-class DetailsAppBar extends StatelessWidget {
-  const DetailsAppBar({super.key});
+class DetailsAppBar extends StatefulWidget {
+  DetailsAppBar({super.key, required this.id});
+  int id;
+
+  @override
+  State<DetailsAppBar> createState() => _DetailsAppBarState();
+}
+
+class _DetailsAppBarState extends State<DetailsAppBar> {
+  final listFavoritesViewModel = ListFavoritesViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +30,26 @@ class DetailsAppBar extends StatelessWidget {
             "Details",
             style: TextStyle(fontSize: 20),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
+          FutureBuilder(
+            future: listFavoritesViewModel.getFavoriteForId(widget.id),
+            builder: (context, snapshot) {
+              if (listFavoritesViewModel.list != null && listFavoritesViewModel.list!.isNotEmpty) {
+                return const Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                  size: 30,
+                );
+              } else {
+                return IconButton(
+                  onPressed: () {
+                    listFavoritesViewModel.setFavorite(widget.id);
+                    setState(() {});
+                  },
+                  icon: const Icon(Icons.favorite_outline),
+                  iconSize: 30,
+                );
+              }
             },
-            icon: const Icon(Icons.notifications_outlined),
-            iconSize: 30,
           )
         ],
       ),

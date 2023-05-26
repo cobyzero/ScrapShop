@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scrap_shop/util/common.dart';
+import 'package:provider/provider.dart';
+import 'package:scrap_shop/providers/mainProvider.dart';
 import 'package:scrap_shop/views/cart/cartView.dart';
+import 'package:scrap_shop/views/favorites/favoritesView.dart';
 import 'package:scrap_shop/views/home/homeView.dart';
 
 class MainView extends StatelessWidget {
@@ -20,6 +22,7 @@ class MainView extends StatelessWidget {
               controller: pageController,
               children: [
                 HomeView(),
+                FavoritesView(),
                 const CartView(),
               ],
             ),
@@ -33,10 +36,10 @@ class MainView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                itemPage("Home", Icons.home_filled, true, 0),
-                itemPage("Saved", Icons.favorite_outline, false, 1),
-                itemPage("Cart", Icons.shopping_bag_outlined, false, 2),
-                itemPage("Settings", Icons.settings_outlined, false, 3),
+                itemPage("Home", Icons.home_filled, 0, context),
+                itemPage("Saved", Icons.favorite_outline, 1, context),
+                itemPage("Cart", Icons.shopping_bag_outlined, 2, context),
+                itemPage("Settings", Icons.settings_outlined, 3, context),
               ],
             ),
           ),
@@ -45,16 +48,18 @@ class MainView extends StatelessWidget {
     );
   }
 
-  IconButton itemPage(String title, IconData icon, bool active, int id) {
+  IconButton itemPage(String title, IconData icon, int id, BuildContext context) {
+    final provider = Provider.of<MainProvider>(context);
     return IconButton(
       onPressed: () {
         pageController.jumpToPage(id);
+        provider.pageCount = id;
       },
       icon: Icon(
         icon,
         size: 35,
       ),
-      color: active ? Colors.black : Colors.grey,
+      color: provider.pageCount == id ? Colors.black : Colors.grey,
     );
   }
 }

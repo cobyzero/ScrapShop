@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:scrap_shop/util/common.dart';
 
-import '../../util/common.dart';
-
+// ignore: must_be_immutable
 class MyElevatedButton extends StatelessWidget {
   MyElevatedButton({
     super.key,
@@ -27,7 +27,7 @@ class MyElevatedButton extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           ),
           space(w: 10),
           Icon(

@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:scrap_shop/providers/detailsProvider.dart';
 import 'package:scrap_shop/util/common.dart';
 import 'package:scrap_shop/viewModels/productsViewModel.dart';
-import 'package:scrap_shop/views/details/widgets/detailsPrice.dart';
 
+// ignore: must_be_immutable
 class DetailsSize extends StatelessWidget {
   DetailsSize({super.key, required this.id});
 

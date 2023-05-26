@@ -3,6 +3,7 @@ import 'package:provider/provider.dart' as pr;
 import 'package:scrap_shop/providers/homeProvider.dart';
 import 'package:scrap_shop/viewModels/categoryViewModel.dart';
 
+// ignore: must_be_immutable
 class HomeListCategory extends StatelessWidget {
   HomeListCategory({super.key});
   var listCategoryViewModel = ListCategoryViewModel();

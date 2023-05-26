@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class MyTextFormField extends StatelessWidget {
   MyTextFormField(
       {super.key, required this.title, required this.text, this.oscure = false, this.controller});

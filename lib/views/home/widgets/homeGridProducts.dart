@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:scrap_shop/providers/homeProvider.dart';
 import 'package:scrap_shop/viewModels/productsViewModel.dart';
 
+// ignore: must_be_immutable
 class HomeGridProducts extends StatelessWidget {
   HomeGridProducts({super.key});
 

@@ -4,13 +4,14 @@ import 'package:scrap_shop/providers/detailsProvider.dart';
 import 'package:scrap_shop/util/const.dart';
 import 'package:scrap_shop/viewModels/cartViewModel.dart';
 
+// ignore: must_be_immutable
 class CartPrice extends StatelessWidget {
   CartPrice({super.key});
   var listCartViewModel = ListCartViewModel();
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DetailsProvider>(context);
+    Provider.of<DetailsProvider>(context);
 
     return FutureBuilder(
       future: listCartViewModel.getCart(),

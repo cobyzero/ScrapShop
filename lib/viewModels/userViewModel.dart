@@ -10,7 +10,7 @@ class ListUserViewModel {
   Future<void> signInWithEmail(BuildContext context, String username, String password) async {
     try {
       loading(context);
-      final AuthResponse res = await supabaseClient.auth
+      await supabaseClient.auth
           .signInWithPassword(
             email: username,
             password: password,

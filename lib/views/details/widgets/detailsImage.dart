@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scrap_shop/viewModels/productsViewModel.dart';
 
+// ignore: must_be_immutable
 class DetailsImage extends StatelessWidget {
   DetailsImage({super.key, required this.id});
   int id;

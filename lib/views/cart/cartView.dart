@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scrap_shop/util/common.dart';
 import 'package:scrap_shop/views/cart/widgets/cartAppBar.dart';
 import 'package:scrap_shop/views/cart/widgets/cartListItem.dart';
 import 'package:scrap_shop/views/cart/widgets/cartPrice.dart';

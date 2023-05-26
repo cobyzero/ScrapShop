@@ -4,6 +4,7 @@ import 'package:scrap_shop/viewModels/userViewModel.dart';
 import 'package:scrap_shop/views/widgets/elevatedButton.dart';
 import 'package:scrap_shop/views/widgets/textFormField.dart';
 
+// ignore: must_be_immutable
 class LoginView extends StatelessWidget {
   LoginView({super.key});
 

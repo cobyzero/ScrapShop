@@ -5,7 +5,6 @@ import 'package:scrap_shop/views/details/widgets/detailsImage.dart';
 import 'package:scrap_shop/views/details/widgets/detailsInformation.dart';
 import 'package:scrap_shop/views/details/widgets/detailsPrice.dart';
 import 'package:scrap_shop/views/details/widgets/detailsSize.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DetailsView extends StatelessWidget {
   const DetailsView({super.key});
@@ -20,7 +19,9 @@ class DetailsView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DetailsAppBar(),
+            DetailsAppBar(
+              id: id,
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(

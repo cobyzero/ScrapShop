@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scrap_shop/providers/mainProvider.dart';
+import 'package:scrap_shop/views/account/accountView.dart';
 import 'package:scrap_shop/views/cart/cartView.dart';
 import 'package:scrap_shop/views/favorites/favoritesView.dart';
 import 'package:scrap_shop/views/home/homeView.dart';
@@ -22,8 +23,9 @@ class MainView extends StatelessWidget {
               controller: pageController,
               children: [
                 HomeView(),
-                FavoritesView(),
+                const FavoritesView(),
                 const CartView(),
+                const AccountView(),
               ],
             ),
           ),
